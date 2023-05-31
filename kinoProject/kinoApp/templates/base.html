@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/style/style.css' %}">
+    <link rel="stylesheet" href="{% static '/style/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static '/style/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static './style/bootstrap.min.css' %}">
+
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'homePage' %}">EtoNeKinoHD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'topMovies' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'allMovies' %}">Movies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'signUp' %}">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'loginPage' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'logoutUser' %}">{{ user.username }} : Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="{% static '/script/jquery.min.js' %}"></script>
+    <script src="{% static '/script/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/script/carousel.js' %}"></script>
+    <script src="{% static './script/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
